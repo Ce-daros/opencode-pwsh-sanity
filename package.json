@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "opencode-pwsh-sanity",
+  "version": "0.1.0",
+  "description": "OpenCode plugin that reduces PowerShell quoting failures on Windows by scriptifying risky commands and blocking accidental POSIX syntax leaks.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "npm run build && node --test tests/*.test.mjs",
+    "prepublishOnly": "npm test"
+  },
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "powershell",
+    "pwsh",
+    "windows",
+    "llm",
+    "shell"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ce-daros/opencode-pwsh-sanity.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Ce-daros/opencode-pwsh-sanity/issues"
+  },
+  "homepage": "https://github.com/Ce-daros/opencode-pwsh-sanity#readme",
+  "license": "MIT",
+  "peerDependencies": {
+    "@opencode-ai/plugin": ">=1.4.0 <2"
+  },
+  "peerDependenciesMeta": {
+    "@opencode-ai/plugin": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@opencode-ai/plugin": "^1.18.4",
+    "@types/node": "^24.0.0",
+    "typescript": "^5.8.3"
+  }
+}
